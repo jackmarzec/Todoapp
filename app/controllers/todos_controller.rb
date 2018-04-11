@@ -19,6 +19,26 @@ def show
 @todo = Todo.find(params[:id])
 end
 
+def edit
+  @todo = Todo.find(params[:id])
+end
+
+def update
+  @todo = Todo.find(params[:id])
+  if @todo.update(todo_params)
+    flash[notice] = "Todo was succesfully updated"
+    redirect_to todo_path(@todo)
+  else
+    redner 'edit'
+  end
+end
+
+
+
+
+
+
+
   private
 
 
